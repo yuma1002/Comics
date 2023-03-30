@@ -2,7 +2,7 @@ class Admins::CustomersController < ApplicationController
     before_action :authenticate_admin!
   
   def index
-    @customers = Customer.page(params[:page]).per(10).reverse_order
+    @customers = Customer.all
     
   end
 

@@ -8,8 +8,13 @@ class Customers::ItemsController < ApplicationController
  def index
   @genres = Genre.all
   
-  @items = Item.page(params[:page]).per(8)
+  @items = Item.all
   @items_all = Item.all
+  
+  #検索オブジェクト
+  @search = Item.ransack(params[:q])
+  #検索結果
+  @items = @search.result
  end
 
  
@@ -17,15 +22,16 @@ class Customers::ItemsController < ApplicationController
   @item = Item.find(params[:id])
   @cart_item = CartItem.new
   @genres = Genre.all
+  @post_comment = PostComment.new
  end
 
  def about
     
  end
 
-end
 
   private
   def item_params
-    params.require(:item).permit(:image,)
+    params.require(:item).permit(:image)
   end
+end

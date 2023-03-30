@@ -86,7 +86,7 @@ class Customers::OrdersController < ApplicationController
 			session[:new_address] = nil
 		end
 
-		# 以下、order_detail作成
+
 		cart_items = current_customer.cart_items
 		cart_items.each do |cart_item|
 			order_detail = OrderDetail.new
@@ -98,7 +98,7 @@ class Customers::OrdersController < ApplicationController
 			order_detail.save
 		end
 
-		# 購入後はカート内商品削除
+
 		cart_items.destroy_all
 	end
 

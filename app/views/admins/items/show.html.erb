@@ -1,7 +1,7 @@
  <div class="row">
   <div class="col-xs-4">
-      <h2>商品詳細</h2><br>
- <%= image_tag @item.image, size: "200×200" %>
+      <h2>書籍詳細</h2><br>
+ <%= image_tag @item.image, size: "50x50" %>
   </div>
 
       <br><br><br><br>
@@ -9,11 +9,11 @@
         <table class="table">
           <tbody>
             <tr>
-              <td>商品名</td>
+              <td>書籍名</td>
               <td><%= @item.name %></td>
             </tr>
             <tr>
-              <td>商品説明</td>
+              <td>あらすじ</td>
               <td><%= @item.description %></td>
             </tr>
             <tr>
@@ -21,19 +21,7 @@
               <td><%= @item.genre.name %></td>
             </tr>
             <tr>
-              <td>税込価格</td>
-              <td><%= (@item.price_without_tax*1.1).floor.to_s(:delimited, delimiter: ',') %>円</td>
-            </tr>
-            <tr>
-              <td>販売ステータス</td>
-              <td>
-              <% if @item.is_sales_status == false %>
-              販売中
-              <% else %>
-              販売停止中
-              <% end %>
-              </td>
-            </tr>
+        
           </tbody>
         </table>
         <div class="col-md-offset-1 col-

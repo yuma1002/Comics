@@ -3,14 +3,14 @@
     <div class="row">
     <%= form_for(@items, url: admins_items_path) do |f| %>
 
-    <div class="col-md-5 col-xs-5">
-     <h2>商品新規登録</h2>
+    <div class="container" style="margin-top: 20px;">
+     <h2>書籍新規登録</h2>
 
       <div class="item-new-form">
         <%#= f.attachment_field :image %>
       </div>
       <div class="product-img" style="margin-top: 20px;">
-        <%= image_tag 'no_image.jpg', id:"file-preview", :size => '350×350' %>
+        <%#= image_tag 'no_image.jpg', id:"file-preview", :size => '50x50' %>
       </div>
     </div>
 
@@ -22,29 +22,21 @@
 <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
             <tr>
-              <th>商品名</th>
-              <td><%= f.text_field :name, class: "form-control" %></td>
+              <p>書籍名</p>
+              <p><%= f.text_field :name, class: "form-control", :size=>"80" %></p>
             </tr>
 
             <tr>
-              <th>商品説明</th>
-              <td><%= f.text_area :description, class: "form-control" %></td>
+              <p>あらすじ</p>
+              <p><%= f.text_area :description, class: "form-control", :size=>"80x10" %></p>
             </tr>
 
             <tr>
-              <th>ジャンル</th>
-              <td>          <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></td>
+              <p>ジャンル</p>
+              <p>          <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></p>
             </tr>
 
-            <tr>
-              <th>税抜価格</th>
-              <td>  <%= f.text_field :price_without_tax, class: "form-control" %></td>
-            </tr>
-
-            <tr>
-              <th>販売ステータス</th>
-              <td><%= f.select :is_sales_status, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %></td>
-            </tr>
+       
           </tbody>
         </table>
 

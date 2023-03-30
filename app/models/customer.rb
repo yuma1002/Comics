@@ -7,7 +7,8 @@ class Customer < ApplicationRecord
          has_many :cart_items, dependent: :destroy
          has_many :orders, dependent: :destroy
          has_many :shipping_addresses, dependent: :destroy
-         
+         has_many :post_comments, dependent: :destroy
+         has_many :favorites, dependent: :destroy
 
     # 退会機能
     def active_for_authentication?
@@ -15,10 +16,5 @@ class Customer < ApplicationRecord
     end
 
        validates :last_name,  presence: true
-       validates :first_name, presence: true
-       validates :last_name_kana,  presence: true
-       validates :first_name_kana, presence: true
-       validates :phone_number, presence: true
-       validates :postal_code,  presence: true
-       validates :address, presence: true
+  
 end
