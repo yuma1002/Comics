@@ -10,8 +10,24 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :index]
     get 'about' => 'items#about'
    end
+   
+   resources :customers, only: [:show, :edit, :update] do
+       get :cart_items, on: :collection
+   end
+   
+   resources :items, expect: [:index] do
+       resource :cart_items, only: [:create, :destroy]
+   end
+ 
 
   namespace :customers do
+      resources :items, only: [:new, :create, :index, :show, :destroy] do
+  
+    resources :post_comments, only: [:create, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+    end
+  end
+   
    resources :genres, only: [:show]
    patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
    get 'show' => 'customers#show'

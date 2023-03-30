@@ -1,24 +1,35 @@
-# README
+# <ここにアプリ名を入力>
+Comics
+## サイト概要
+### サイトテーマ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+気になっている漫画のジャンルを調べたり、自分が読んだ本の感想を
+投稿したりできるレビューサイト
+### テーマを選んだ理由
 
-Things you may want to cover:
+自分が望むジャンルの漫画を読めること、その漫画を読む方法が一目で分かるようにすることをテーマにしています。
+漫画のジャンルといえば、例えばひとえに青春マンガといっても、その中にも様々なジャンルが派生しています。そこで、
+読もうか迷っている漫画がある時、なにか漫画を読みたいなと思っているとき、その漫画が本当に
+自分に合うジャンルかどうかが分かること、また、
+どの漫画雑誌で連載しているのか、閲覧できるアプリがいくつあるのかという、
+その漫画を読む方法がいくつあるのかをすぐに調べられるサービスを想定しました。
+### ターゲットユーザ
 
-* Ruby version
+気になる漫画がある人、好きなジャンルの漫画を探したい人
+### 主な利用シーン
 
-* System dependencies
+気になる漫画のジャンルを知りたいとき、その漫画を読む方法を知りたいとき
+## 設計書
 
-* Configuration
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 著作権に配慮するためにイラストは利用しない。
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。

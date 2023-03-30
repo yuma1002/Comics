@@ -13,21 +13,21 @@ Admin.create!(
     
     
     Genre.create!(
-        name: "ケーキ",
+        name: "学園",
         is_genres_status: true
         )
         
         Genre.create!(
-            name: "プリン",
+            name: "ギャグ",
             is_genres_status: true
             )
             
             Genre.create!(
-                name: "焼き菓子",
+                name: "スポーツ",
                 is_genres_status: true
                 )
                 
                 Genre.create!(
-                    name: "キャンディ",
+                    name: "ホラー",
                     is_genres_status: true
                     )
