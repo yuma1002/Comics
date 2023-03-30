@@ -42,7 +42,7 @@ Rails.application.routes.draw do
    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
-  # admin側ルーティング
+  # adminルーティング
   devise_for :admins, controllers: {
    sessions:      'admins/sessions',
    passwords:     'admins/passwords',
