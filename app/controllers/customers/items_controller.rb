@@ -5,6 +5,12 @@ class Customers::ItemsController < ApplicationController
   @items = Item.all
  end
 
+
+
+#def bookmarks
+#@bookmarks_items = current_customer.bookmark_items.includes(:customer).order(created_at: :desc)
+#end
+
  def index
   @genres = Genre.all
   
@@ -20,7 +26,7 @@ class Customers::ItemsController < ApplicationController
  
  def show
   @item = Item.find(params[:id])
-  @cart_item = CartItem.new
+  @bookmark = Bookmark.new
   @genres = Genre.all
   @post_comment = PostComment.new
  end

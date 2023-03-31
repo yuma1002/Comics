@@ -4,6 +4,7 @@ class Customers::CustomersController < ApplicationController
     # マイページへのアクション
     def show
         @customer = current_customer
+        
     end
 
     # 登録情報編集へのアクション

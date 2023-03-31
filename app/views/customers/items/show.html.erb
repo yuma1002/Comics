@@ -22,14 +22,14 @@
 	</div>
 	<div class="col-xs-5">
 	</div>
-	 <% if CartItem.find_by(item_id: @item.id, customer_id: current_customer.id) %>
+	 <% if Bookmark.find_by(item_id: @item.id, customer_id: current_customer.id) %>
 	 		<div class="col-xs-5">
 		  <p>
-		  <%= link_to "お気に入り解除", customers_cart_item_path(item_id: @item), method: :delete %>
+		  <%= link_to "お気に入り解除", customers_bookmarks_path(item_id: @item), method: :delete %>
 		  </p>
 		  </div>
     <% else %>
-	<%= form_for(@cart_item , url: customers_cart_items_path(item_id: @item), method: :post) do |form| %>
+	<%= form_for(@bookmark , url: customers_bookmarks_path(item_id: @item), method: :post) do |form| %>
 		<div class="col-xs-5">
 		  <p><%= form.submit "お気に入り登録", class:"btn btn-primary" %></p>
 		</div>

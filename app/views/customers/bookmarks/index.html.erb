@@ -1,0 +1,19 @@
+
+<div class="row">
+	<div class="col-xs-2">
+
+	</div>
+
+<% @customer_bookmarks.reverse_each do |bookmark| %>
+
+  <div>
+    <%= bookmark.item.name %>
+  </div>
+<% end %>
+<% if @customer_bookmarks.empty? %>
+  <h2>お気に入りはありません</h2>
+<% end %>
+
+
+
+

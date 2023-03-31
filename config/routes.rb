@@ -4,24 +4,37 @@ Rails.application.routes.draw do
    passwords:     'customers/passwords',
    registrations: 'customers/registrations'
   }
+namespace :customers do
 
+          resources :bookmarks, only: [:index, :create, :update, :destroy]
+end
   scope module: 'customers' do
     root 'items#top'
     resources :items, only: [:show, :index]
     get 'about' => 'items#about'
+
+      resources :bookmarks, only: [:index, :create, :update, :destroy]
+       resources :customers, only: [:show, :edit, :update] do
+       #get :cart_items, on: :collection
+       resources :customers, only: [:show] do 
+           
+           resources :items, only: %i[index new create show edit destroy update], shallow: true do
+  get :bookmarks, on: :collection
+  resource :bookmarks, only: %i[create destroy]
+end
+  end
+   end
    end
    
-   resources :customers, only: [:show, :edit, :update] do
-       get :cart_items, on: :collection
-   end
+ 
    
-   resources :items, expect: [:index] do
-       resource :cart_items, only: [:create, :destroy]
-   end
+
+   resources :bookmarks, only: [:create, :destroy]
  
 
   namespace :customers do
       resources :items, only: [:new, :create, :index, :show, :destroy] do
+          
   
     resources :post_comments, only: [:create, :destroy] do
       resource :favorites, only: [:create, :destroy]
@@ -30,16 +43,16 @@ Rails.application.routes.draw do
    
    resources :genres, only: [:show]
    patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
-   get 'show' => 'customers#show'
+ 
    get 'customers/edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
    get 'orders/about' => 'orders#about', as: 'orders_about'
    get 'orders/complete' => 'orders#complete'
    resources :orders, only: [:create, :new, :index, :show]
-   resources :cart_items, only: [:index, :create, :update, :destroy]
-   delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
-   resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
+   resources :bookmarks, only: [:index, :create, :update, :destroy]
+
+ 
   end
 
   # adminルーティング
