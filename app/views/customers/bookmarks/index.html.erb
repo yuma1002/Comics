@@ -1,18 +1,24 @@
 
 <div class="row">
-	<div class="col-xs-2">
 
-	</div>
-
+<div class="test1">
 <% @customer_bookmarks.reverse_each do |bookmark| %>
 
-  <div>
-    <%= bookmark.item.name %>
-  </div>
+
+	 <%#= image_tag item.image, size: "50x50" %>
+    <%#= bookmark.item.name %>
+
+    <div class="test2">
+    <%= link_to bookmark.item.name, item_path(bookmark.item.id) %>
+    </div>
+
+ 
 <% end %>
+</div>
 <% if @customer_bookmarks.empty? %>
   <h2>お気に入りはありません</h2>
 <% end %>
+</div>
 
 
 
